@@ -1,0 +1,58 @@
+{
+	"name": "petstore",
+	"version": "0.0.1",
+	"private": true,
+	"main": "./dist/index.js",
+	"source": "./src/index.ts",
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"scripts": {
+		"dev": "nodemon --config ./nodemon.json",
+		"build": "tsc && tsc-alias",
+		"start": "node ./dist/src/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint . --ext .ts",
+		"lint:fix": "eslint . --ext .ts --fix",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"openapi:gen": "npx openapi-typescript --root-types",
+		"openapi:lint": "npx redocly lint ./openapi/v1.yaml",
+		"openapi:docs": "npx redocly build-docs -o ./gen/v1.html ./openapi/v1.yaml",
+		"openapi": "npm run openapi:lint && npm run openapi:gen && npm run openapi:docs"
+	},
+	"dependencies": {
+		"bcrypt": "^5.1.1",
+		"compression": "^1.8.0",
+		"cors": "^2.8.5",
+		"express": "^4.21.2",
+		"helmet": "^8.0.0",
+		"hpp": "^0.2.3",
+		"http-status-codes": "^2.3.0",
+		"jsonwebtoken": "^9.0.2",
+		"mongoose": "^8.12.1",
+		"morgan": "^1.10.0",
+		"openapi-ts-router": "*",
+		"validation-adapters": "*",
+		"winston": "^3.17.0",
+		"zod": "^3.24.2"
+	},
+	"devDependencies": {
+		"@blgc/config": "*",
+		"@redocly/cli": "^1.33.1",
+		"@types/bcrypt": "^5.0.2",
+		"@types/compression": "^1.7.5",
+		"@types/cors": "^2.8.17",
+		"@types/express": "^5.0.0",
+		"@types/hpp": "^0.2.6",
+		"@types/jsonwebtoken": "^9.0.9",
+		"@types/morgan": "^1.9.9",
+		"@types/node": "^22.10.7",
+		"nodemon": "^3.1.9",
+		"openapi-typescript": "^7.5.2",
+		"ts-node": "^10.9.2",
+		"tsc-alias": "^1.8.11",
+		"tsconfig-paths": "^4.2.0"
+	}
+}

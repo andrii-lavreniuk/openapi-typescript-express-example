@@ -1,0 +1,57 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "NODE_ENV",
+    "PORT",
+    "MONGO_CONNECTION_URL",
+    "JWT_SECRET_KEY",
+    "JWT_EXPIRES_IN",
+    "LOG_FORMAT",
+    "LOG_LEVEL",
+    "CORS_ORIGIN",
+    "CORS_CREDENTIALS"
+  ],
+  "globalDependencies": [
+    ".env",
+    ".env.local"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**"
+      ]
+    },
+    "build:prod": {
+      "dependsOn": [
+        "^build:prod"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**"
+      ]
+    },
+    "lint": {
+      "dependsOn": [
+        "^lint"
+      ]
+    },
+    "start:dev": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "test": {
+      "cache": false
+    },
+    "update:latest": {
+      "cache": false
+    }
+  }
+}

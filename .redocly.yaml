@@ -1,0 +1,11 @@
+extends:
+  - recommended
+
+apis:
+  petstore:
+    root: openapi/v1.yaml
+    x-openapi-ts:
+      output: gen/v1.ts
+    rules:
+      info-license: off
+      no-server-example.com: off
